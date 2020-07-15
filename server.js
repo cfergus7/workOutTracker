@@ -1,10 +1,12 @@
 const express = require("express");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 //define port
 const PORT = process.env.PORT || 3000
 
 const app = express();
 // set express to be able to use json
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // serve public files
